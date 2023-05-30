@@ -3,7 +3,9 @@ import os
 
 
 bird_imgs = [
-    pygame.transform.scale2x(pygame.image.load(os.path.join('../../', f'images/bird{x}.png'))) for x in range(1, 4)
+    pygame.transform.scale2x(pygame.image.load(
+        os.path.join('../../', f'images/bird{x}.png'))
+    ) for x in range(1, 4)
 ]
 
 
