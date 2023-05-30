@@ -1,10 +1,4 @@
 import pygame
-import os
-
-
-base_img = pygame.transform.scale2x(pygame.image.load(
-    os.path.join('../../', 'images/base.png')
-))
 
 
 class Base:
@@ -12,15 +6,16 @@ class Base:
     Represents the moving floor of the game
     """
     VEL = 5
-    WIDTH = base_img.get_width()
-    IMG = base_img
 
-    def __init__(self, y: int):
+    def __init__(self, y: int, base_img: pygame.Surface):
         """
         Initialize the object
         :param y: int
         :return: None
         """
+        self.BASE_IMG = base_img
+        self.WIDTH = self.BASE_IMG.get_width()
+        self.IMG = self.BASE_IMG
         self.y = y
         self.x1 = 0
         self.x2 = self.WIDTH

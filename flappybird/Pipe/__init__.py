@@ -1,12 +1,6 @@
-import os.path
 import random
 import pygame
-from FlappyBird import Bird
-
-
-pipe_img = pygame.transform.scale2x(pygame.image.load(
-    os.path.join('../../', 'images/pipe.png')
-))
+from flappybird.Bird import Bird
 
 
 class Pipe:
@@ -16,7 +10,7 @@ class Pipe:
     GAP = 200
     VEL = 5
 
-    def __init__(self, x: int):
+    def __init__(self, x: int, pipe_img: pygame.Surface):
         """
         Initialize pipe object
         :param x: int
@@ -24,13 +18,14 @@ class Pipe:
         """
         self.x = x
         self.height = 0
+        self.PIPE_IMG = pipe_img
 
         # Where the top and bottom of the pipe is
         self.top = 0
         self.bottom = 0
 
-        self.PIPE_TOP = pygame.transform.flip(pipe_img, False, True)
-        self.PIPE_BOTTOM = pipe_img
+        self.PIPE_TOP = pygame.transform.flip(self.PIPE_IMG, False, True)
+        self.PIPE_BOTTOM = self.PIPE_IMG
 
         self.passed = False
 

@@ -1,12 +1,4 @@
 import pygame
-import os
-
-
-bird_imgs = [
-    pygame.transform.scale2x(pygame.image.load(
-        os.path.join('../../', f'images/bird{x}.png'))
-    ) for x in range(1, 4)
-]
 
 
 def blit_rotate_center(surf, image, top_left, angle):
@@ -27,17 +19,18 @@ def blit_rotate_center(surf, image, top_left, angle):
 
 class Bird:
     MAX_ROTATION = 25
-    IMGS = bird_imgs
+
     ROT_VEL = 20
     ANIMATION_TIME = 5
 
-    def __init__(self, x, y):
+    def __init__(self, x: int, y: int, bird_imgs: [pygame.Surface]):
         """
         Initialize the object
         :param x: starting x pos (int)
         :param y: starting y pos (int)
         :return: None
         """
+        self.IMGS = bird_imgs
         self.x = x
         self.y = y
         self.tilt = 0  # degrees to tilt
