@@ -40,16 +40,16 @@ class FlappyBird:
         current_path = os.getcwd()
         # Load images with pygame
         bg_img = pygame.transform.scale(pygame.image.load(
-            os.path.join(current_path, "images/bg.png")
+            os.path.join(current_path, "game_images/bg.png")
         ).convert_alpha(), (600, 900))
         base_img = pygame.transform.scale2x(pygame.image.load(
-            os.path.join(current_path, "images/base.png")
+            os.path.join(current_path, "game_images/base.png")
         ).convert_alpha())
         pipe_img = pygame.transform.scale2x(pygame.image.load(
-            os.path.join(current_path, "images/pipe.png")
+            os.path.join(current_path, "game_images/pipe.png")
         ).convert_alpha())
         bird_imgs = [pygame.transform.scale2x(pygame.image.load(
-            os.path.join(current_path, f"images/bird{i}.png")
+            os.path.join(current_path, f"game_images/bird{i}.png")
         )) for i in range(1, 4)]
 
         return {
